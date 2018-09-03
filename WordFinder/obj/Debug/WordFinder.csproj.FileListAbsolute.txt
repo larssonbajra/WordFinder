@@ -1,0 +1,14 @@
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\bin\Debug\WordFinder.exe.config
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\bin\Debug\WordFinder.exe
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\bin\Debug\WordFinder.pdb
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\bin\Debug\Bunifu.Core.dll
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.EditText.resources
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.MyPreloader.resources
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.WordFind.resources
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.Properties.Resources.resources
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.csproj.GenerateResource.Cache
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.csproj.CoreCompileInputs.cache
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.exe
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.pdb
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.Update.resources
+C:\Users\Larsson\source\repos\WordFinder\WordFinder\obj\Debug\WordFinder.csprojResolveAssemblyReference.cache
