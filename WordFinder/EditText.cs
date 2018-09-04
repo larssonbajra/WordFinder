@@ -32,12 +32,13 @@ namespace WordFinder
 			textBox1.Text = WordFind.selectLine;
 
 		}
-		private void buttonCancel_Click(object sender, EventArgs e)
-		{
-			WordFind master = (WordFind)Application.OpenForms["WordFinder"];
-			//master.searchData.PerformClick();
-			this.Dispose();
-		}
+		//private void buttonCancel_Click(object sender, EventArgs e)
+		//{
+		//	WordFind master = (WordFind)Application.OpenForms["WordFinder"];
+		//	//master.searchData.PerformClick();
+		//	this.Dispose();
+  //          this.Close();
+		//}
 		private void bunifuButton1_Click(object sender, EventArgs e)
 		{
 			string wholetext = File.ReadAllText(WordFind.selectedLineFile);
@@ -91,20 +92,22 @@ namespace WordFinder
 			//System.Windows.Forms.MessageBox.Show("UPDATED");
 			Update t2 = new Update();
 			t2.ShowDialog();
-			
-			WordFind master = (WordFind)Application.OpenForms["WordFinder"];
-			//master.searchData.PerformClick();
-			
-			
-			
+
+            //WordFind master = (WordFind)Application.OpenForms["WordFinder"];
+            //master.searchData.PerformClick();
+
+
+          
 
 			this.Dispose();
 		}
 
 		private void buttonCancel_Click_1(object sender, EventArgs e)
 		{
-			
-			this.Dispose();
+            //WordFind master = (WordFind)Application.OpenForms["WordFinder"];
+            
+            this.Close();
+			//this.Dispose();
 		}
 	}
 }

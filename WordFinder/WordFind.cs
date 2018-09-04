@@ -30,132 +30,140 @@ namespace WordFinder
 			//myPreloader1.Dispose();
 		}
 		
-		private void searchData_Click(object sender, EventArgs e)
-		{
-         
+		public void searchData_Click(object sender, EventArgs e)
+        {
+            Program.search_string = textData.Text;
+            //search_text = textData.Text;
+            research_data(textData.Text);
+           
+            
+        }
+        public void research_data(string new_str)
+        {
+            textData.Text = new_str;
             int progVal = 0;
-			bunifuProgressBar1.Visible = true;
-			
-			//myPreloader1.Visible = true;
-			
-			
-			//System.Windows.Forms.MessageBox.Show("WORKS ))");
-			label2.Text = "";
-			fileSelected = null;
-			int counter = 0;
-			listData.Items.Clear();
-			files.Clear();
-			listFile.Items.Clear();
-			try
-			{
-				string[] fileEntries = Directory.GetFiles(@"D:\Files");
-				foreach (string fileName in fileEntries)
-				{
+            bunifuProgressBar1.Visible = true;
 
-					Console.Write(fileName);
-					string wholetext = File.ReadAllText(fileName);
-					Console.Write(wholetext);
-					//String wholetext = File.ReadAllText(fileName, System.Text.Encoding.GetEncoding(1252));
-
-					char[] textbreak = wholetext.ToCharArray();
-					//Console.Write(textbreak[1].ToString());
-					int s = 0;
-					int t = 0;
-					int countLines = 0;
-
-					for (int i = 0; i < textbreak.Length; i++)
-					{
-
-						t++;
-						string tester = textbreak[i].ToString();
-						//Console.Write(textbreak[i]);
-						if (tester.Equals("."))
-						{
-							//breakdown[countLines] = wholetext.Substring(s, i);
-							countLines++;
-							if (textData.Text.Equals(""))
-							{
-								label1.Text = "";
-								System.Windows.Forms.MessageBox.Show("Cannot leave a blank for search");
-
-								goto Last;
-								//break;
-							}
-							string ast = textData.Text.Substring(textData.Text.Length - 1);
-
-							if (wholetext.Substring(s, t).IndexOf(textData.Text, StringComparison.CurrentCultureIgnoreCase) >= 0)
-							//(record.Contains(textSearch.Text))
-							{
-								//colour change of the text in the string to be added
-
-								String WholeData = wholetext.Substring(s, t);
+            //myPreloader1.Visible = true;
 
 
+            //System.Windows.Forms.MessageBox.Show("WORKS ))");
+            label2.Text = "";
+            fileSelected = null;
+            int counter = 0;
+            listData.Items.Clear();
+            files.Clear();
+            listFile.Items.Clear();
+            try
+            {
+                string[] fileEntries = Directory.GetFiles(@"D:\Files");
+                foreach (string fileName in fileEntries)
+                {
 
+                    Console.Write(fileName);
+                    string wholetext = File.ReadAllText(fileName);
+                    Console.Write(wholetext);
+                    //String wholetext = File.ReadAllText(fileName, System.Text.Encoding.GetEncoding(1252));
 
-								listData.Items.Add(WholeData);
-								files.Add(fileName);
-								counter++;
-								//listData.Items.Add(" ");
+                    char[] textbreak = wholetext.ToCharArray();
+                    //Console.Write(textbreak[1].ToString());
+                    int s = 0;
+                    int t = 0;
+                    int countLines = 0;
 
+                    for (int i = 0; i < textbreak.Length; i++)
+                    {
 
-								if (!listFile.Items.Contains(fileName))
-								{
+                        t++;
+                        string tester = textbreak[i].ToString();
+                        //Console.Write(textbreak[i]);
+                        if (tester.Equals("."))
+                        {
+                            //breakdown[countLines] = wholetext.Substring(s, i);
+                            countLines++;
+                            if (textData.Text.Equals(""))
+                            {
+                                label1.Text = "";
+                                System.Windows.Forms.MessageBox.Show("Cannot leave a blank for search");
 
-									listFile.Items.Add(fileName);
-								}
-							}
-							// Display a horizontal scroll bar.
-							listData.HorizontalScrollbar = true;
+                                goto Last;
+                                //break;
+                            }
+                            string ast = textData.Text.Substring(textData.Text.Length - 1);
 
-							//}
+                            if (wholetext.Substring(s, t).IndexOf(textData.Text, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                            //(record.Contains(textSearch.Text))
+                            {
+                                //colour change of the text in the string to be added
 
-
-							s = i + 1;
-							t = 0;
-
-						}
-
-					}
-					//listData.Items.Add(wholetext);
-					bunifuProgressBar1.Value = progVal;
-					progVal++;
-					if (progVal > 100)
-					{
-						progVal = 100;
-					}
-
-				}
+                                String WholeData = wholetext.Substring(s, t);
 
 
 
 
-				if (counter == 0)
-				{
-					System.Windows.Forms.MessageBox.Show("No matches found");
-
-				}
-				else
-				{
-					label1.Text = counter.ToString() + " times Found";
-					this.listData.MouseDoubleClick += new MouseEventHandler(listData_MouseDoubleClick);
-
-				}
-				Last: Console.Write("end");
-				//myPreloader1.Visible = false;
-				bunifuProgressBar1.Visible = false;
+                                listData.Items.Add(WholeData);
+                                files.Add(fileName);
+                                counter++;
+                                //listData.Items.Add(" ");
 
 
+                                if (!listFile.Items.Contains(fileName))
+                                {
 
-			}
-			catch
-			{
-				System.Windows.Forms.MessageBox.Show("No Folder Found in E:/Files");
-			}
-			
-		}
+                                    listFile.Items.Add(fileName);
+                                }
+                            }
+                            // Display a horizontal scroll bar.
+                            listData.HorizontalScrollbar = true;
 
-		private void versionToolStripMenuItem_Click(object sender, EventArgs e)
+                            //}
+
+
+                            s = i + 1;
+                            t = 0;
+
+                        }
+
+                    }
+                    //listData.Items.Add(wholetext);
+                    bunifuProgressBar1.Value = progVal;
+                    progVal++;
+                    if (progVal > 100)
+                    {
+                        progVal = 100;
+                    }
+
+                }
+
+
+
+
+                if (counter == 0)
+                {
+                    System.Windows.Forms.MessageBox.Show("No matches found");
+
+                }
+                else
+                {
+                    label1.Text = counter.ToString() + " times Found";
+                    //this.listData.MouseDoubleClick += new MouseEventHandler(listData_MouseDoubleClick);
+
+                }
+                Last: Console.Write("end");
+                //myPreloader1.Visible = false;
+                bunifuProgressBar1.Visible = false;
+
+               
+
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("No Folder Found in E:/Files");
+            }
+
+        }
+
+        private void versionToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			System.Windows.Forms.MessageBox.Show("Version 1.0 ( Developed by Dept of ICT, Changwon National University (Larsson Bajracharya and Jeongjun Mun ))");
 		}
@@ -293,38 +301,39 @@ namespace WordFinder
 
 
 		}
-		void listData_MouseDoubleClick(object sender, EventArgs e)
-		{
+		//void listData_MouseDoubleClick(object sender, EventArgs e)
+		//{
 
-			selectLine = listData.Text.ToString();
-			int indexData = listData.SelectedIndex;
-			if (indexData < 0)
-			{
-				goto out1;
-			}
+		//	selectLine = listData.Text.ToString();
+		//	int indexData = listData.SelectedIndex;
+		//	if (indexData < 0)
+		//	{
+		//		goto out1;
+		//	}
 
-			if (fileSelected == null)
-			{
+		//	if (fileSelected == null)
+		//	{
 
 
-				selectedLineFile = files[indexData].ToString();
-			}
-			else
-			{
+		//		selectedLineFile = files[indexData].ToString();
+		//	}
+		//	else
+		//	{
 
-				selectedLineFile = fileSelected;
-			}
-			EditText f2 = new EditText();
+		//		selectedLineFile = fileSelected;
+		//	}
+		//	EditText f2 = new EditText();
 			
 
 
-			f2.ShowDialog();
-			
-			out1: Console.WriteLine("avoided");
+		//	f2.ShowDialog();
+  //          f2.Close();
+  //          f2.Dispose();
+		//	out1: Console.WriteLine("avoided");
 
 
 
-		}
+		//}
 
 		private void listFile_SelectedIndexChanged_1(object sender, EventArgs e)
 		{
@@ -423,7 +432,7 @@ namespace WordFinder
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				searchData_Click(sender, e);
+				searchData_Click(sender , e);
 			}
 
 		}
@@ -435,6 +444,76 @@ namespace WordFinder
 
         private void WordFind_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            EditText editText = new EditText();
+            editText.Close();
+            editText.Dispose();
+        }
+
+        //private void listData_MouseDoubleClick(object sender, MouseEventArgs e)
+        //{
+
+        //    selectLine = listData.Text.ToString();
+        //    int indexData = listData.SelectedIndex;
+        //    if (indexData < 0)
+        //    {
+        //        goto out1;
+        //    }
+
+        //    if (fileSelected == null)
+        //    {
+
+
+        //        selectedLineFile = files[indexData].ToString();
+        //    }
+        //    else
+        //    {
+
+        //        selectedLineFile = fileSelected;
+        //    }
+        //    EditText f2 = new EditText();
+
+
+
+        //    f2.ShowDialog();
+        //    f2.Close();
+        //    f2.Dispose();
+        //    out1: Console.WriteLine("avoided");
+
+        //}
+
+        private void listData_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            selectLine = listData.Text.ToString();
+            int indexData = listData.SelectedIndex;
+            if (indexData < 0)
+            {
+                goto out1;
+            }
+
+            if (fileSelected == null)
+            {
+
+
+                selectedLineFile = files[indexData].ToString();
+            }
+            else
+            {
+
+                selectedLineFile = fileSelected;
+            }
+            EditText f2 = new EditText();
+
+
+
+            f2.ShowDialog();
+            f2.Close();
+            f2.Dispose();
+            out1: Console.WriteLine("avoided");
 
         }
     }

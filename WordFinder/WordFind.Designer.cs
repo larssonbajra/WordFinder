@@ -217,6 +217,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(502, 443);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // listData
             // 
@@ -228,6 +229,7 @@
             this.listData.Size = new System.Drawing.Size(450, 308);
             this.listData.TabIndex = 4;
             this.listData.SelectedIndexChanged += new System.EventHandler(this.listData_SelectedIndexChanged_1);
+            this.listData.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listData_MouseDoubleClick_1);
             // 
             // label2
             // 
